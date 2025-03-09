@@ -11,9 +11,10 @@
             <div class="login">
                 <h1 class="text-2xl font-semibold mb-3 ">Login</h1>
                 <form action="/auth/login" method="POST" class="flex flex-col space-y-2">
-                   
-                 <label for="username">User name</label>
-                <input type="email" placeholder="Username" name="email" required class="px-2 py-1 text-gray-700 bg-gray-100 focus:outline-none">
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                 <label for="username">Email </label>
+                <input type="email" placeholder="Email" name="email" required class="px-2 py-1 text-gray-700 bg-gray-100 focus:outline-none">
                 
                 <label for="password">Password</label>
                 <input type="password" placeholder="Password" name="password" required class="px-2 py-1 text-gray-700 bg-gray-100 focus:outline-none ">
