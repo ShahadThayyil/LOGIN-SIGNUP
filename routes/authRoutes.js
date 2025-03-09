@@ -58,9 +58,37 @@ router.post("/login", authLimiter, csrfProtection, (req, res, next) => {
   })(req, res, next);
 });
 
+// router.post("/login", authLimiter, csrfProtection, (req, res, next) => {
+//   passport.authenticate("local", (err, user, info) => {
+//     if (err) {
+//       console.error("Login error:", err);
+//       return res.status(500).json({ error: "Internal server error. Please try again." });
+//     }
+//     if (!user) {
+//       console.log("Login failed:", info.message);
+//       return res.status(401).json({ error: info.message || "Invalid credentials" });
+//     }
 
+//     req.logIn(user, (err) => {
+//       if (err) {
+//         console.error("Session error:", err);
+//         return res.status(500).json({ error: "Session error. Please try again." });
+//       }
+
+//       req.session.regenerate((err) => {  
+//         if (err) {
+//           console.error("Session regeneration error:", err);
+//           return res.status(500).json({ error: "Failed to create session." });
+//         }
+
+//         console.log(`User ${user.email} logged in successfully.`);
+//         res.redirect("/auth/dashboard");
+//       });
+//     });
+//   })(req, res, next);
+// });
 router.get("/google", csrfProtection, passport.authenticate("google", { scope: ["profile", "email"] }));
-router.get("/google/callback", csrfProtection, passport.authenticate("google", { successRedirect: "/auth/dashboard", failureRedirect: "/login" }));
+router.get("/google/callback", csrfProtection, passport.authenticate("google", { successRedirect: "/auth/dashboard", failureRedirect: "/auth/login" }));
 
 
 router.get("/logout", csrfProtection, (req, res) => {

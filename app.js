@@ -9,12 +9,12 @@ const passport = require("passport");
 const methodOverride = require("method-override");
 const mongoConnect = require("./config/mongoDbconnectoin");
 const sanitizeHtml = require("sanitize-html");
-const mongoSanitize = require("express-mongo-sanitize"); // Prevent NoSQL Injection
-const xssClean = require("xss-clean"); // Additional XSS Protection
-const hpp = require("hpp"); // Prevent HTTP Parameter Pollution
-const compression = require("compression"); // Improve performance
-const csurf = require("csurf"); // CSRF Protection
-const cookieParser = require("cookie-parser"); // Needed for CSRF token handling
+const mongoSanitize = require("express-mongo-sanitize"); 
+const xssClean = require("xss-clean"); 
+const hpp = require("hpp"); 
+const compression = require("compression"); 
+const csurf = require("csurf");
+const cookieParser = require("cookie-parser"); 
 
 require("./config/passport")(passport);
 
@@ -30,8 +30,6 @@ app.set("view engine", "ejs");
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-
-
 app.use(compression());
 
 app.use(helmet());

@@ -13,9 +13,8 @@
                 <form action="/auth/login" method="POST" class="flex flex-col space-y-2">
                     <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
-                 <label for="username">Email </label>
+                 <label for="email">Email </label>
                 <input type="email" placeholder="Email" name="email" required class="px-2 py-1 text-gray-700 bg-gray-100 focus:outline-none">
-                
                 <label for="password">Password</label>
                 <input type="password" placeholder="Password" name="password" required class="px-2 py-1 text-gray-700 bg-gray-100 focus:outline-none ">
                <div class="btn  ">
