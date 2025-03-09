@@ -51,8 +51,10 @@ router.post("/login", authLimiter, csrfProtection, (req, res, next) => {
 
     req.logIn(user, (err) => {
       if (err) return next(err);
-      req.session.regenerate(() => {  
-        res.redirect("/auth/dashboard");
+
+      req.session.user = user;  // Store user in session
+      req.session.save(() => {  // Ensure session is saved
+        res.redirect("/auth/dashboard"); 
       });
     });
   })(req, res, next);
