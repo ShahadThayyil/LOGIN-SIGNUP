@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('./partials/header.ejs') %>
+    <title>Dashboard</title>
+</head>
+<body>
+   
+<section class="flex justify-center mt-48">
+    <div class="user bg-gray-800  text-white shadow-md shadow-black">
+        <div class="user_details px-8 py-8 ">
+            <h3>Welcome to <%= user.name %></h3>
+            <h1>Hey how are you </i><strong><%= user.name %></strong></h1>
+            <p><%= user.name %> welcome to the Dashboard</p>
+            <p>You email is : <%= user.email %></p>
+            <div class="btn mt-3">
+           
+               <a href="/auth/logout">     <button type="submit" class="bg-gray-700 shadow-sm shadow-green-700 hover:shadow-red-700 cursor-pointer duration-300 px-2 py-1">Logout</button></a>
+            
+            </div>
+        </div>
+       
+    </div>
+</section>
+</body>
+</html>
